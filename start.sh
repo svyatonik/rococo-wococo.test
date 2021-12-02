@@ -103,7 +103,7 @@ RELAY_BINARY_PATH=./bin/substrate-relay
 
 # initialize Rococo -> Wococo headers bridge
 ./run-with-log.sh initialize-rococo-to-wococo "$RELAY_BINARY_PATH\
-	init-bridge RococoToWococo\
+	init-bridge rococo-to-wococo\
 	--source-host=$ROCOCO_HOST\
 	--source-port=$ROCOCO_PORT\
 	--target-host=$WOCOCO_HOST\
@@ -112,7 +112,7 @@ RELAY_BINARY_PATH=./bin/substrate-relay
 
 # initialize Wococo -> Rococo headers bridge
 ./run-with-log.sh initialize-wococo-to-rococo "$RELAY_BINARY_PATH\
-	init-bridge WococoToRococo\
+	init-bridge wococo-to-rococo\
 	--source-host=$WOCOCO_HOST\
 	--source-port=$WOCOCO_PORT\
 	--target-host=$ROCOCO_HOST\
@@ -122,6 +122,8 @@ RELAY_BINARY_PATH=./bin/substrate-relay
 # start rococo-wococo headers+messages relay
 ./run-with-log.sh relay-rococo-wococo "$RELAY_BINARY_PATH\
 	relay-headers-and-messages rococo-wococo\
+	--create-relayers-fund-accounts\
+	--relayer-mode=altruistic\
 	--rococo-host=$ROCOCO_HOST\
 	--rococo-port=$ROCOCO_PORT\
 	--rococo-signer=//Alice\

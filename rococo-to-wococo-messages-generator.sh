@@ -26,7 +26,7 @@ LANE=00000000
 # submit Millau to Rialto message
 submit_message() {
 	MESSAGE_PARAMS="$*"
-	$RELAY_BINARY_PATH 2>&1 send-message RococoToWococo \
+	$RELAY_BINARY_PATH 2>&1 send-message rococo-to-wococo \
 		--source-host=$ROCOCO_HOST\
 		--source-port=$ROCOCO_PORT\
 		--source-signer=$ROCOCO_SIGNER\
