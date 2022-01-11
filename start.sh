@@ -108,7 +108,8 @@ RELAY_BINARY_PATH=./bin/substrate-relay
 	--source-port=$ROCOCO_PORT\
 	--target-host=$WOCOCO_HOST\
 	--target-port=$WOCOCO_PORT\
-	--target-signer=//Alice"&
+	--target-signer=//Alice\
+	--target-version-mode=Auto"&
 
 # initialize Wococo -> Rococo headers bridge
 ./run-with-log.sh initialize-wococo-to-rococo "$RELAY_BINARY_PATH\
@@ -117,7 +118,8 @@ RELAY_BINARY_PATH=./bin/substrate-relay
 	--source-port=$WOCOCO_PORT\
 	--target-host=$ROCOCO_HOST\
 	--target-port=$ROCOCO_PORT\
-	--target-signer=//Alice"&
+	--target-signer=//Alice\
+	--target-version-mode=Auto"&
 
 # start rococo-wococo headers+messages relay
 ./run-with-log.sh relay-rococo-wococo "$RELAY_BINARY_PATH\
@@ -127,9 +129,11 @@ RELAY_BINARY_PATH=./bin/substrate-relay
 	--rococo-host=$ROCOCO_HOST\
 	--rococo-port=$ROCOCO_PORT\
 	--rococo-signer=//Alice\
+	--rococo-version-mode=Auto\
 	--wococo-host=$WOCOCO_HOST\
 	--wococo-port=$WOCOCO_PORT\
 	--wococo-signer=//Alice\
+	--wococo-version-mode=Auto\
 	--lane=00000000\
 	--prometheus-port=9700"&
 
