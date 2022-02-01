@@ -135,6 +135,7 @@ RELAY_BINARY_PATH=./bin/substrate-relay
 	--wococo-signer=//Alice\
 	--wococo-version-mode=Auto\
 	--lane=00000000\
+	--lane=00000001\
 	--prometheus-port=9700"&
 
 ###############################################################################
